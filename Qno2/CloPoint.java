@@ -2,7 +2,7 @@ package Qno2;
 
 import java.util.Arrays;
 
-public class ClosestPoints {
+public class CloPoint {
     public static void main(String[] args) {
         int[] x_coords = {1, 2, 3, 2, 4};
         int[] y_coords = {2, 3, 1, 2, 3};

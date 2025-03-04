@@ -1,10 +1,8 @@
 package Qno3;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 import javax.swing.*;
-
 public class Tetris extends JPanel implements ActionListener, KeyListener, MouseListener {
     private final int BOARD_WIDTH = 12;
     private final int BOARD_HEIGHT = 20;
@@ -15,23 +13,19 @@ public class Tetris extends JPanel implements ActionListener, KeyListener, Mouse
     private int currentX, currentY;
     private boolean gameOver;
     private Random random;
-
     public Tetris() {
         setPreferredSize(new Dimension(BOARD_WIDTH * TILE_SIZE + 150, BOARD_HEIGHT * TILE_SIZE));
-        setBackground(Color.BLACK);
+        setBackground(Color.CYAN);
         setFocusable(true);
         addKeyListener(this);
         addMouseListener(this);
-
         board = new boolean[BOARD_HEIGHT][BOARD_WIDTH];
         timer = new Timer(500, this);
         timer.start();
         random = new Random();
-
         nextShape = new Shape(random.nextInt(4));
         spawnShape();
     }
-
     private void restartGame() {
         board = new boolean[BOARD_HEIGHT][BOARD_WIDTH];
         gameOver = false;
@@ -40,13 +34,11 @@ public class Tetris extends JPanel implements ActionListener, KeyListener, Mouse
         spawnShape();
         repaint();
     }
-
     private void spawnShape() {
         currentShape = nextShape;
         nextShape = new Shape(random.nextInt(4));
         currentX = BOARD_WIDTH / 2 - 1;
         currentY = 0;
-
         if (collision()) {
             gameOver = true;
             timer.stop();
@@ -120,7 +112,7 @@ public class Tetris extends JPanel implements ActionListener, KeyListener, Mouse
         for (int i = 0; i < BOARD_HEIGHT; i++) {
             for (int j = 0; j < BOARD_WIDTH; j++) {
                 if (board[i][j]) {
-                    g.setColor(Color.CYAN);
+                    g.setColor(Color.PINK);
                     g.fillRect(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                 }
             }
@@ -141,7 +133,7 @@ public class Tetris extends JPanel implements ActionListener, KeyListener, Mouse
         // Draw the "Next Shape" preview box
         int previewX = BOARD_WIDTH * TILE_SIZE + 20;
         int previewY = 100;
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.drawRect(previewX - 10, previewY - 10, 4 * TILE_SIZE, 4 * TILE_SIZE);
         g.drawString("Next:", previewX, previewY - 20);
 

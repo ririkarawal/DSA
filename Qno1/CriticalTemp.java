@@ -1,6 +1,6 @@
 package Qno1;
 
-public class CriticalTemperature {
+public class CriticalTemp {
     public static int minMeasurements(int k, int n) {
         // Initialize dp array
         int[][] dp = new int[k + 1][n + 1];

@@ -1,7 +1,7 @@
 package Qno3;
 import java.util.*;
 
-public class DeviceNetwork {
+public class Device {
     public static void main(String[] args) {
         int n = 3;
         int[] modules = {1, 2, 2};

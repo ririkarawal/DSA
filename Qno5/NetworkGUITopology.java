@@ -29,7 +29,7 @@ class NetworkEdge {
     }
 }
 
-public class NetworkTopologyGUI extends JPanel {
+public class NetworkGUITopology extends JPanel {
     private final java.util.List<NetworkNode> nodes = new java.util.ArrayList<>();
     private final java.util.List<NetworkEdge> edges = new java.util.ArrayList<>();
     private int nodeCount = 0;
@@ -38,7 +38,7 @@ public class NetworkTopologyGUI extends JPanel {
     private JTextField startNodeField, endNodeField;
     private JLabel totalCostLabel, latencyLabel, connectivityLabel;
 
-    public NetworkTopologyGUI() {
+    public NetworkGUITopology() {
         setBackground(Color.WHITE);
         setPreferredSize(new Dimension(800, 600));
 
@@ -130,9 +130,9 @@ public class NetworkTopologyGUI extends JPanel {
         }
 
         for (NetworkNode node : nodes) {
-            g.setColor(node.isServer ? Color.RED : Color.BLUE);
+            g.setColor(node.isServer ? Color.BLUE : Color.BLACK);
             g.fillOval(node.x - 10, node.y - 10, 20, 20);
-            g.setColor(Color.BLACK);
+            g.setColor(Color.GREEN);
             g.drawOval(node.x - 10, node.y - 10, 20, 20);
             g.drawString("N" + node.id, node.x - 5, node.y - 5);
         }
@@ -327,7 +327,7 @@ public class NetworkTopologyGUI extends JPanel {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Network Topology GUI");
-            NetworkTopologyGUI panel = new NetworkTopologyGUI();
+            NetworkGUITopology panel = new NetworkGUITopology();
             frame.add(panel);
             frame.pack();
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,7 +1,7 @@
 package Qno4;
 import java.util.*;
 
-public class PackageDeliveryDistance2 {
+public class PackageDeliveryDistance {
     
     // Returns the minimum roads needed to collect all packages (distance <= 2) and return to start.
     public static int minRoads(int[] packages, int[][] roads) {

@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-class MultiThreadedWebCrawler {
+class ThreadCrawler {
 
     // Thread-safe queue for URLs to crawl
     private ConcurrentLinkedQueue<String> urlQueue = new ConcurrentLinkedQueue<>();
@@ -21,7 +21,7 @@ class MultiThreadedWebCrawler {
     // Executor service for managing threads
     private ExecutorService executorService;
 
-    public MultiThreadedWebCrawler(int numThreads) {
+    public ThreadCrawler(int numThreads) {
         executorService = Executors.newFixedThreadPool(numThreads);
     }
 
@@ -30,7 +30,7 @@ class MultiThreadedWebCrawler {
         private String url;
 
         public CrawlTask(String url) {
-            this.url = url;
+            this.url = url;         
         }
 
         @Override
@@ -81,7 +81,7 @@ class MultiThreadedWebCrawler {
 
     // Main method to run the crawler
     public static void main(String[] args) {
-        MultiThreadedWebCrawler crawler = new MultiThreadedWebCrawler(10); // 10 threads
+        ThreadCrawler crawler = new ThreadCrawler (10); // 10 threads
         // Add initial URLs to crawl
         crawler.addUrls(List.of("https://google.com", "https://youtube.com"));
         // Start crawling

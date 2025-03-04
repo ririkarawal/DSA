@@ -75,7 +75,7 @@ class ThreadController {
     }
 }
 
-public class Main1 {
+public class Point {
     public static void main(String[] args) {
         NumberPrinter printer = new NumberPrinter();
         ThreadController controller = new ThreadController(5, printer);

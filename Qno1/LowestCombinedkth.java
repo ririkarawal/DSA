@@ -1,17 +1,15 @@
 package Qno1;
 import java.util.PriorityQueue;
-
-public class KthLowestCombinedReturn {
+public class LowestCombinedkth {
     public static void main(String[] args) {
         int[] returns1 = {2, 5};
         int[] returns2 = {3, 4};
         int k = 2;
         
-        int result = kthLowestCombinedReturn(returns1, returns2, k);
+        int result = LowestCombinedkth(returns1, returns2, k);
         System.out.println("The " + k + "th lowest combined return is: " + result); // Improved output
     }
-
-    public static int kthLowestCombinedReturn(int[] returns1, int[] returns2, int k) {
+    public static int LowestCombinedkth (int[] returns1, int[] returns2, int k) {
         int n = returns1.length;
         int m = returns2.length;
 
@@ -22,7 +20,6 @@ public class KthLowestCombinedReturn {
         for (int i = 0; i < Math.min(n, k); i++) {
             minHeap.offer(new Element(returns1[i] * returns2[0], i, 0));
         }
-
         // Extract the smallest element k times
         int currentProduct = 0;
         for (int i = 0; i < k; i++) {
@@ -36,10 +33,8 @@ public class KthLowestCombinedReturn {
                 minHeap.offer(new Element(returns1[index1] * returns2[index2 + 1], index1, index2 + 1));
             }
         }
-
         return currentProduct;
     }
-
     // Helper class to store the product and the indices
     static class Element {
         int product;
